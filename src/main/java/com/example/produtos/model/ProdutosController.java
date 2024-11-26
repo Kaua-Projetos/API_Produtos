@@ -45,14 +45,8 @@ public class ProdutosController {
     private List<Produto> obterProdutoEspecifico(@PathParam("nome") String nome){
 
         if (nome == null || nome.isEmpty()){
-
-            long contagemProdutos = produtosRepository.count();
-            System.out.println("Produtos totais: " +contagemProdutos);
-
             return produtosRepository.findAll();
         }else {
-            long contagemProdutos = produtosRepository.count();
-            System.out.println("Produtos totais requisitados: " +contagemProdutos);
             return produtosRepository.findByNomeContaining(nome);
         }
 
